@@ -1,0 +1,93 @@
+{
+  "task": {
+    "id": "task-2-cloudflare-workers",
+    "name": "The Cloudflare Worker Beacons",
+    "phase": 2,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Create a Cloudflare Worker configured with a cron trigger that pings each StackDock demo app's health endpoint and sends aggregated data to Convex",
+  "subtasks": [
+    {
+      "id": "2.2.1",
+      "description": "Create Cloudflare Worker",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Worker created in Cloudflare dashboard",
+        "Worker code is deployed",
+        "Worker can make HTTP requests",
+        "Worker is accessible"
+      ]
+    },
+    {
+      "id": "2.2.2",
+      "description": "Configure cron trigger",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Cron trigger configured (e.g., every 5 minutes)",
+        "Trigger fires on schedule",
+        "Worker executes on cron schedule"
+      ],
+      "schedule": "Every 5 minutes (or as configured)"
+    },
+    {
+      "id": "2.2.3",
+      "description": "Implement health check pinging logic",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Worker pings each demo app health endpoint",
+        "DNS resolution time is measured",
+        "Server response time is measured",
+        "HTTP status code is captured",
+        "Latency metrics are collected"
+      ]
+    },
+    {
+      "id": "2.2.4",
+      "description": "Collect data from multiple Cloudflare Worker regions",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Worker runs from multiple regions",
+        "Data includes region information",
+        "Global coverage is achieved"
+      ],
+      "note": "Optional but recommended for better global coverage"
+    },
+    {
+      "id": "2.2.5",
+      "description": "Send aggregated JSON data to Convex HTTP Action",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Data is aggregated by provider",
+        "JSON payload includes all metrics",
+        "HTTP request to Convex succeeds",
+        "API key authentication is included"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-1-infrastructure-setup",
+    "task-3-convex-backend (HTTP Action endpoint)"
+  ],
+  "acceptanceCriteria": [
+    "Cloudflare Worker is created and deployed",
+    "Cron trigger fires every 5 minutes",
+    "Worker pings all demo app health endpoints",
+    "Metrics are collected (DNS, response time, status, latency)",
+    "Aggregated data is sent to Convex HTTP Action",
+    "Global coverage from multiple regions (if implemented)"
+  ],
+  "implementationNotes": [
+    "Use Cloudflare Workers cron triggers (scheduled events)",
+    "Measure time to first byte for latency",
+    "Handle errors gracefully - don't fail entire batch if one provider is down",
+    "Include timestamp and region in payload",
+    "Use environment variables for Convex endpoint URL and API key"
+  ],
+  "relatedFiles": [
+    "cloudflare/worker.js (or worker.ts)",
+    "wrangler.toml"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

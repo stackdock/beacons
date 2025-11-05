@@ -1,0 +1,111 @@
+{
+  "task": {
+    "id": "task-4-frontend-ui",
+    "name": "The Frontend UI (In-App Component)",
+    "phase": 2,
+    "status": "pending",
+    "priority": "high"
+  },
+  "description": "Create an in-app flyout/sheet component that displays Beacon Network status and correlation results when user errors occur",
+  "subtasks": [
+    {
+      "id": "2.4.1",
+      "description": "Create button/trigger on /operations/global-status page",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Button is visible on /operations/global-status route",
+        "Button opens flyout/sheet component",
+        "Button is styled appropriately"
+      ]
+    },
+    {
+      "id": "2.4.2",
+      "description": "Create flyout/sheet component using shadcn/ui",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Sheet/Modal component from shadcn/ui is used",
+        "Component opens and closes correctly",
+        "Component is responsive",
+        "Component matches design system"
+      ],
+      "component": "shadcn/ui Sheet or Modal"
+    },
+    {
+      "id": "2.4.3",
+      "description": "Implement TanStack Query to fetch Beacon Network status",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "useSuspenseQuery hook calls listGlobalStatus",
+        "Data is fetched from Convex",
+        "Loading states are handled",
+        "Error states are handled"
+      ],
+      "hook": "useSuspenseQuery",
+      "function": "listGlobalStatus"
+    },
+    {
+      "id": "2.4.4",
+      "description": "Display real-time provider status with visual indicators",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Provider status is displayed (UP/DOWN/DEGRADED)",
+        "Visual indicators are clear (colors/icons)",
+        "Provider names are shown",
+        "Latency metrics are displayed",
+        "Last checked timestamp is shown"
+      ]
+    },
+    {
+      "id": "2.4.5",
+      "description": "Display correlation results when user errors occur",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "User-specific errors show 'Your app issue' message",
+        "Global outages show 'GLOBAL OUTAGE DETECTED' message",
+        "Correlation context is displayed",
+        "Alert level is visually indicated"
+      ],
+      "messages": {
+        "userSpecific": "Your app issue",
+        "globalOutage": "GLOBAL OUTAGE DETECTED - Our Beacon Network confirms this is a provider-wide issue"
+      }
+    },
+    {
+      "id": "2.4.6",
+      "description": "Implement real-time updates via Convex subscriptions",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Component subscribes to provider_status changes",
+        "UI updates automatically when status changes",
+        "Updates are smooth and performant",
+        "No unnecessary re-renders"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-3-convex-backend",
+    "phase-1 (Navigation & UI Shell)"
+  ],
+  "acceptanceCriteria": [
+    "Flyout component opens from /operations/global-status page",
+    "Beacon Network status is displayed in real-time",
+    "Provider status indicators are clear and visual",
+    "Correlation results are shown when errors occur",
+    "Component updates automatically via Convex subscriptions",
+    "UI is responsive and matches design system"
+  ],
+  "implementationNotes": [
+    "Use shadcn/ui Sheet component for the flyout",
+    "Ensure component is accessible (keyboard navigation, ARIA labels)",
+    "Use Convex useQuery for real-time subscriptions",
+    "Display correlation results prominently when available",
+    "Consider adding a refresh button for manual updates"
+  ],
+  "relatedFiles": [
+    "app/routes/operations/global-status.tsx",
+    "app/components/beacon-network-flyout.tsx",
+    "app/components/provider-status-indicator.tsx"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

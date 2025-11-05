@@ -1,0 +1,116 @@
+{
+  "task": {
+    "id": "task-3-convex-backend",
+    "name": "The Convex Backend (Correlation Engine)",
+    "phase": 2,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Build the Convex backend to receive beacon data, aggregate provider status, and correlate user errors with provider health",
+  "subtasks": [
+    {
+      "id": "2.3.1",
+      "description": "Create Convex HTTP Action to receive beacon data",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "HTTP Action endpoint created",
+        "API key authentication implemented",
+        "Incoming requests are validated",
+        "Raw beacon data is stored in beacon_raw_data table",
+        "Timestamp and provider info are included"
+      ],
+      "table": "beacon_raw_data"
+    },
+    {
+      "id": "2.3.2",
+      "description": "Create Convex Scheduled Function to aggregate data",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Scheduled Function created and configured",
+        "Raw data is aggregated by provider",
+        "Provider status is calculated (UP/DOWN/DEGRADED)",
+        "Average latency is computed",
+        "Data is stored in provider_status table"
+      ],
+      "table": "provider_status",
+      "fields": [
+        "Provider name",
+        "Current status (UP/DOWN/DEGRADED)",
+        "Average latency",
+        "Last checked timestamp",
+        "Region breakdown (if available)"
+      ]
+    },
+    {
+      "id": "2.3.3",
+      "description": "Create Convex Query Function (listGlobalStatus)",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Query function returns provider status data",
+        "Data is real-time and queryable",
+        "Frontend can call this function",
+        "Returns all providers with current status"
+      ],
+      "functionName": "listGlobalStatus"
+    },
+    {
+      "id": "2.3.4",
+      "description": "Create Convex Mutation (correlateErrorWithBeacon)",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Mutation takes Sentry error/alert as input",
+        "Checks provider_status for relevant provider",
+        "Determines if issue is user-specific or global outage",
+        "Returns correlation result with alert level",
+        "Provider UP → Standard alert level",
+        "Provider DOWN → Elevated alert level + Beacon confirmation"
+      ],
+      "functionName": "correlateErrorWithBeacon",
+      "logic": {
+        "providerUp": "Issue is user-specific → Standard alert level",
+        "providerDown": "Global outage detected → Elevated alert level + Beacon confirmation message"
+      }
+    },
+    {
+      "id": "2.3.5",
+      "description": "Integrate Sentry with all Convex functions",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Sentry SDK installed in Convex",
+        "HTTP Action errors are captured",
+        "Scheduled Function errors are captured",
+        "Query errors are captured",
+        "Mutation errors are captured",
+        "All backend errors are monitored"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-1-infrastructure-setup",
+    "task-2-cloudflare-workers"
+  ],
+  "acceptanceCriteria": [
+    "HTTP Action receives and stores beacon data securely",
+    "Scheduled Function aggregates data into provider_status table",
+    "Query Function provides real-time provider status",
+    "Mutation correlates errors with provider status correctly",
+    "Sentry monitors all backend functions",
+    "Alert levels are correctly determined based on correlation"
+  ],
+  "implementationNotes": [
+    "Use API key authentication for HTTP Action",
+    "Calculate provider status based on recent health checks",
+    "DEGRADED status can be based on latency thresholds",
+    "Correlation logic should check last N checks (e.g., last 3) for reliability",
+    "Store correlation results for audit trail"
+  ],
+  "relatedFiles": [
+    "convex/schema.ts",
+    "convex/http.ts (HTTP Action)",
+    "convex/scheduled.ts (Scheduled Function)",
+    "convex/queries.ts (listGlobalStatus)",
+    "convex/mutations.ts (correlateErrorWithBeacon)"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

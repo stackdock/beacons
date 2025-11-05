@@ -1,0 +1,84 @@
+{
+  "task": {
+    "id": "task-2-metered-function",
+    "name": "The Metered Convex Function",
+    "phase": 3,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Create a Convex mutation/action that checks user's organization credit limits before allowing Firecrawl operations",
+  "subtasks": [
+    {
+      "id": "3.2.1",
+      "description": "Create Convex mutation/action that accepts user URL",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Function accepts URL as parameter",
+        "Function validates URL format",
+        "Function is callable from frontend"
+      ],
+      "functionType": "Convex mutation or action"
+    },
+    {
+      "id": "3.2.2",
+      "description": "Implement organization credit check logic",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Function reads user's organization (orgId)",
+        "Function reads autumnSubscriptionStatus",
+        "Function reads firecrawlCreditsUsed",
+        "Function reads firecrawlCreditsLimit"
+      ]
+    },
+    {
+      "id": "3.2.3",
+      "description": "Implement Free Team Plan credit checking",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Checks if firecrawlCreditsUsed < 900",
+        "If under limit: Proceeds",
+        "If over limit: Returns error message",
+        "Error message: 'Free credit limit reached. Please upgrade to the Business Plan for more credits.'"
+      ],
+      "limit": 900,
+      "errorMessage": "Free credit limit reached. Please upgrade to the Business Plan for more credits."
+    },
+    {
+      "id": "3.2.4",
+      "description": "Implement Business Plan credit checking",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Checks if firecrawlCreditsUsed < 5000",
+        "If under limit: Proceeds (uses bundled credits)",
+        "If over limit: Proceeds but flags for PAYG billing",
+        "Allows unlimited usage with PAYG"
+      ],
+      "limit": 5000,
+      "paygEnabled": true
+    }
+  ],
+  "dependencies": [
+    "phase-1 (Organization model with credit fields)",
+    "task-1-firecrawl-ui"
+  ],
+  "acceptanceCriteria": [
+    "Function accepts user URL",
+    "Organization credit status is checked correctly",
+    "Free plan users are limited to 900 credits/month",
+    "Business plan users get 5000 credits/month with PAYG",
+    "Error messages are clear and actionable",
+    "Credit limits are enforced"
+  ],
+  "implementationNotes": [
+    "This is a critical function - it controls the funnel",
+    "Credit checking must happen BEFORE Firecrawl API call",
+    "Return clear error messages to guide users to upgrade",
+    "Business plan should always allow usage (PAYG kicks in after 5000)"
+  ],
+  "relatedFiles": [
+    "convex/mutations.ts (or actions.ts)",
+    "convex/schema.ts (organization model)"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

@@ -1,0 +1,163 @@
+{
+  "project": {
+    "name": "StackDock Beacon Network",
+    "type": "Hackathon MVP",
+    "hackathon": {
+      "name": "Convex/TanStack Hackathon",
+      "deadline": "November 14th",
+      "url": "https://www.convex.dev/hackathons/tanstack",
+      "timeline": "~10 days"
+    },
+    "purpose": "MVP and 'Trojan Horse' funnel for the larger StackDock platform",
+    "repository": {
+      "isolation": "Must remain completely isolated from stackdock/stackdock master plan",
+      "referencePath": "C:\\Users\\veter\\Desktop\\DEV\\github\\next\\stackdock",
+      "isolationStrategy": "Manual code extraction only - no git submodules or dependencies"
+    }
+  },
+  "sponsorTechnologies": {
+    "TanStack Start": {
+      "status": "pending",
+      "role": "Frontend framework",
+      "url": "https://tanstack.com/start/latest/docs/framework/react/overview",
+      "integrationPoints": ["Navigation & UI Shell", "Beacon Network UI", "Firecrawl UI"]
+    },
+    "Netlify": {
+      "status": "pending",
+      "role": "Hosting platform for TanStack Start frontend",
+      "url": "https://docs.netlify.com/",
+      "integrationPoints": ["Static shell deployment", "Continuous previews"]
+    },
+    "Convex": {
+      "status": "pending",
+      "role": "Entire backend (database, server functions, auth, scheduled jobs)",
+      "url": "https://docs.convex.dev/home",
+      "integrationPoints": ["Database", "HTTP Actions", "Scheduled Functions", "Queries", "Mutations", "Auth"]
+    },
+    "Cloudflare": {
+      "status": "pending",
+      "role": "DNS and Cloudflare Workers (global monitoring beacon)",
+      "url": "https://developers.cloudflare.com/",
+      "integrationPoints": ["Worker cron jobs", "Global beacon monitoring"]
+    },
+    "Sentry": {
+      "status": "pending",
+      "role": "Error monitoring on both frontend and backend",
+      "url": "https://docs.sentry.io/",
+      "integrationPoints": ["TanStack Start frontend", "All Convex functions", "Alert correlation"]
+    },
+    "CodeRabbit": {
+      "status": "pending",
+      "role": "AI-powered PR reviews",
+      "url": "https://docs.coderabbit.ai/overview/introduction",
+      "integrationPoints": ["Repository setup", "All PRs"]
+    },
+    "Firecrawl": {
+      "status": "pending",
+      "role": "Key user-acquisition hook for stack discovery",
+      "url": "https://docs.firecrawl.dev/introduction",
+      "integrationPoints": ["URL crawling", "Dependency extraction", "Dock discovery"]
+    },
+    "Autumn": {
+      "status": "pending",
+      "role": "Subscription and consumption-based billing",
+      "url": "https://docs.useautumn.com/welcome",
+      "integrationPoints": ["Plan management", "PAYG overage billing", "Credit tracking"]
+    }
+  },
+  "architecture": {
+    "source": "stackdock/stackdock master plan",
+    "patterns": {
+      "universalTableArchitecture": {
+        "description": "For modeling resources",
+        "status": "pending"
+      },
+      "securityArchitecture": {
+        "description": "Encryption and RBAC",
+        "status": "pending"
+      },
+      "techStack": {
+        "description": "Convex, TanStack, Clerk, shadcn/ui",
+        "status": "pending"
+      },
+      "dataModel": {
+        "description": "Organizations, Users, Projects",
+        "status": "pending"
+      }
+    },
+    "extractionGuidelines": {
+      "extract": [
+        "Convex schema patterns (Universal Table Architecture)",
+        "RBAC helper functions and type definitions",
+        "Provider adapter patterns (simplified for MVP)",
+        "Authentication utilities (Clerk integration patterns)",
+        "TypeScript types and interfaces"
+      ],
+      "skip": [
+        "Unused features or complexity beyond MVP scope",
+        "Infrastructure configs specific to the master repo",
+        "Dependencies that aren't part of the hackathon tech stack"
+      ]
+    }
+  },
+  "businessModel": {
+    "plans": {
+      "freeTeamPlan": {
+        "price": 0,
+        "currency": "USD",
+        "billingCycle": "monthly",
+        "features": {
+          "firecrawlCredits": 900,
+          "creditsPerDay": 30,
+          "teamMembers": "unlimited",
+          "internalRoles": ["Admin", "Viewer"],
+          "externalFeatures": false,
+          "clientPortal": false,
+          "encryptedClientKey": false
+        },
+        "costPerUser": 0.89,
+        "maxUsersFromBasePlan": 111
+      },
+      "businessPlan": {
+        "price": 19,
+        "currency": "USD",
+        "billingCycle": "monthly",
+        "features": {
+          "firecrawlCredits": 5000,
+          "payAsYouGo": true,
+          "priorityQueue": true,
+          "externalFeatures": true,
+          "clientPortal": true,
+          "encryptedClientKey": true
+        },
+        "costPerUser": 9.50,
+        "profitPerUser": 9.50,
+        "margin": "50%",
+        "overagePricing": {
+          "perCredit": 0.01,
+          "perThousand": 10,
+          "margin": "81%"
+        }
+      }
+    },
+    "creditSystem": {
+      "organizationLevel": true,
+      "philosophy": "Organization-level credit pool forces teams to collaborate and manage usage together, creating natural upgrade pressure when limits are reached"
+    }
+  },
+  "phases": {
+    "phase1": {
+      "name": "The Foundation (Core StackDock Shell)",
+      "status": "pending"
+    },
+    "phase2": {
+      "name": "The Core 'Uptime' Feature & Beacon Network",
+      "status": "pending"
+    },
+    "phase3": {
+      "name": "The 'Firecrawl' Hook & 'Autumn' Metering",
+      "status": "pending"
+    }
+  },
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

@@ -1,0 +1,63 @@
+{
+  "phase": {
+    "number": 2,
+    "name": "The Core 'Uptime' Feature & Beacon Network",
+    "status": "pending",
+    "description": "Build the Beacon Network comparison tool that monitors provider health and correlates with user errors to provide intelligent alerts"
+  },
+  "architectureOverview": "The Beacon Network is a comparison tool that provides StackDock's internal baseline for provider health. It helps distinguish between user-specific issues and global provider outages, enabling intelligent alert correlation. The UI is displayed as an in-app flyout/component (button that opens a sheet/modal), not a standalone page.",
+  "objectives": [
+    "Deploy demo apps on major providers (AWS, Vercel, Cloudflare, DigitalOcean)",
+    "Create Cloudflare Worker with cron trigger to monitor demo apps",
+    "Build Convex backend to receive and aggregate beacon data",
+    "Implement correlation engine to match user errors with provider status",
+    "Create frontend UI component (flyout) to display Beacon Network status",
+    "Integrate Sentry for correlation alerts"
+  ],
+  "dependencies": {
+    "external": [
+      "AWS account (for demo app deployment)",
+      "Vercel account (for demo app deployment)",
+      "Cloudflare account (for Workers)",
+      "DigitalOcean account (for demo app deployment)"
+    ],
+    "internal": [
+      "phase-1 (Foundation must be complete)"
+    ]
+  },
+  "deliverables": [
+    "Demo apps deployed on all major providers with health endpoints",
+    "Cloudflare Worker with cron trigger monitoring demo apps",
+    "Convex HTTP Action to receive beacon data",
+    "Convex Scheduled Function to aggregate provider status",
+    "Convex Query Function (listGlobalStatus) for frontend",
+    "Convex Mutation (correlateErrorWithBeacon) for error correlation",
+    "Frontend flyout component displaying Beacon Network status",
+    "Sentry integration for correlation alerts",
+    "Real-time updates via Convex subscriptions"
+  ],
+  "risks": [
+    "Deploying demo apps across multiple providers may be time-consuming",
+    "Cloudflare Worker cron configuration may need iteration",
+    "Correlation logic may require fine-tuning based on real data",
+    "Real-time updates may have performance implications"
+  ],
+  "blockers": [],
+  "tasks": [
+    "task-1-infrastructure-setup",
+    "task-2-cloudflare-workers",
+    "task-3-convex-backend",
+    "task-4-frontend-ui"
+  ],
+  "successCriteria": [
+    "All demo apps are deployed and responding to health checks",
+    "Cloudflare Worker is pinging demo apps every 5 minutes",
+    "Convex backend is receiving and storing beacon data",
+    "Provider status is accurately tracked and queryable",
+    "Frontend displays real-time Beacon Network status",
+    "Error correlation works correctly (user-specific vs global outage)",
+    "Sentry alerts include correlation context"
+  ],
+  "estimatedDuration": "3-4 days",
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

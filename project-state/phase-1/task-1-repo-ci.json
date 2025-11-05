@@ -1,0 +1,87 @@
+{
+  "task": {
+    "id": "task-1-repo-ci",
+    "name": "Repo & CI",
+    "phase": 1,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Initialize the new project repository with CodeRabbit integration and extract core patterns from StackDock master plan",
+  "subtasks": [
+    {
+      "id": "1.1",
+      "description": "Initialize new project repository",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Repository is created and initialized",
+        "No git submodules or cross-repo dependencies exist",
+        "Basic project structure is in place"
+      ]
+    },
+    {
+      "id": "1.2",
+      "description": "Install CodeRabbit on repository",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "CodeRabbit is installed and configured",
+        "All PRs will pass CodeRabbit review",
+        "CodeRabbit webhook is set up"
+      ]
+    },
+    {
+      "id": "1.3",
+      "description": "Review ALL markdown documentation in StackDock master plan",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "ARCHITECTURE.md reviewed and understood",
+        "README.md reviewed and understood",
+        "All other .md files reviewed",
+        "Full vision vs MVP needs clearly understood"
+      ],
+      "notes": "Location: C:\\Users\\veter\\Desktop\\DEV\\github\\next\\stackdock"
+    },
+    {
+      "id": "1.4",
+      "description": "Extract core patterns and adapt for MVP",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Convex schema patterns extracted and adapted",
+        "RBAC helper functions extracted and simplified",
+        "TypeScript types and interfaces extracted",
+        "All code is self-contained in this repository",
+        "Attribution comments added where needed"
+      ]
+    },
+    {
+      "id": "1.5",
+      "description": "Verify repository isolation",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "git submodule status shows no submodules",
+        "package.json has no references to stackdock repo",
+        "All dependencies are standard npm packages",
+        "Repository is completely isolated"
+      ]
+    }
+  ],
+  "dependencies": [],
+  "acceptanceCriteria": [
+    "Repository is initialized and isolated",
+    "CodeRabbit is installed and configured",
+    "Core patterns extracted from master plan",
+    "Isolation verified with no cross-repo dependencies"
+  ],
+  "implementationNotes": [
+    "Focus on MVP scope - skip advanced features",
+    "Simplify implementations for speed",
+    "Manual copy-paste only - no git dependencies",
+    "Add // Adapted from stackdock/stackdock comments where applicable"
+  ],
+  "relatedFiles": [
+    "project-plan.md",
+    "package.json",
+    ".github/workflows/ (if applicable)"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

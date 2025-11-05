@@ -1,0 +1,89 @@
+{
+  "task": {
+    "id": "task-1-firecrawl-ui",
+    "name": "The 'Magic' UI",
+    "phase": 3,
+    "status": "pending",
+    "priority": "high"
+  },
+  "description": "Build the Firecrawl UI component on the main dashboard with input field and credit quota display",
+  "subtasks": [
+    {
+      "id": "3.1.1",
+      "description": "Create UI component on /dashboard route",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Component is visible on main /dashboard page",
+        "Component is well-positioned and styled",
+        "Component matches design system"
+      ]
+    },
+    {
+      "id": "3.1.2",
+      "description": "Add input field for URL analysis",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Input field accepts URLs",
+        "Input is validated (basic URL format)",
+        "Submit button is present",
+        "Placeholder text is clear: 'Analyze Your Site's Dependencies'"
+      ],
+      "placeholder": "Analyze Your Site's Dependencies"
+    },
+    {
+      "id": "3.1.3",
+      "description": "Display current credit quota prominently",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "firecrawlCreditsUsed / firecrawlCreditsLimit is displayed",
+        "Display format is clear (e.g., '450 / 900 credits')",
+        "Quota is visually prominent",
+        "Quota updates in real-time"
+      ],
+      "format": "firecrawlCreditsUsed / firecrawlCreditsLimit"
+    },
+    {
+      "id": "3.1.4",
+      "description": "Show plan type and remaining credits",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Plan type is displayed (Free Team Plan / Business Plan)",
+        "Remaining credits are calculated and shown",
+        "Display is clear and informative"
+      ]
+    },
+    {
+      "id": "3.1.5",
+      "description": "Add note that Firecrawl scan is optional",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Note is visible: 'Firecrawl scan is NOT a requirement - it's an optional upsell hook'",
+        "Note is appropriately styled",
+        "Users understand it's optional"
+      ],
+      "note": "Firecrawl scan is NOT a requirement - it's an optional upsell hook"
+    }
+  ],
+  "dependencies": [
+    "phase-1 (Dashboard route must exist)"
+  ],
+  "acceptanceCriteria": [
+    "UI component is on /dashboard route",
+    "Input field accepts URLs for analysis",
+    "Credit quota is displayed prominently",
+    "Plan type and remaining credits are shown",
+    "Optional nature of scan is communicated"
+  ],
+  "implementationNotes": [
+    "Make the component visually appealing - it's the 'magic' hook",
+    "Use shadcn/ui Input and Button components",
+    "Fetch credit data from Convex organization record",
+    "Update quota display in real-time when credits are used"
+  ],
+  "relatedFiles": [
+    "app/routes/dashboard.tsx",
+    "app/components/firecrawl-analyzer.tsx"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

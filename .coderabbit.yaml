@@ -1,0 +1,37 @@
+language:
+  - typescript
+  - javascript
+  - json
+  - markdown
+
+review:
+  # Require approval from CodeRabbit before merging
+  approval:
+    - coderabbit
+
+  # Review settings
+  request_changes_workflow: true
+  collapse_comment: true
+
+  # Review all PRs
+  filter:
+    - enabled: true
+
+  # Comment settings
+  comment:
+    behavior: default
+    reactions: true
+
+# Bot settings
+bot:
+  review_status: true
+  issue_comment: true
+
+# Ignore certain files
+ignore:
+  - "**/*.min.js"
+  - "**/node_modules/**"
+  - "**/.convex/**"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/.output/**"

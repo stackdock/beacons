@@ -1,0 +1,106 @@
+{
+  "task": {
+    "id": "task-3-navigation-ui",
+    "name": "Navigation & UI Shell",
+    "phase": 1,
+    "status": "pending",
+    "priority": "high"
+  },
+  "description": "Build the top-level navigation structure and UI shell using TanStack Start and shadcn/ui, deploy to Netlify, and integrate Sentry",
+  "subtasks": [
+    {
+      "id": "3.1",
+      "description": "Implement top-level navigation routes",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "/dashboard route implemented",
+        "/projects route implemented",
+        "/infrastructure route implemented",
+        "/operations route implemented",
+        "/settings route implemented",
+        "Navigation structure matches GitHub issue specification"
+      ],
+      "reference": "GitHub issue: 'Implement Simplified Top-Level Navigation'"
+    },
+    {
+      "id": "3.2",
+      "description": "Set up TanStack Start project",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "TanStack Start initialized",
+        "Basic app structure in place",
+        "Routing configured",
+        "Convex client integrated"
+      ]
+    },
+    {
+      "id": "3.3",
+      "description": "Integrate shadcn/ui components",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "shadcn/ui installed and configured",
+        "Base UI components available",
+        "Theme/styling system set up",
+        "Components match design system"
+      ]
+    },
+    {
+      "id": "3.4",
+      "description": "Build static navigation shell",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Navigation bar/menu implemented",
+        "Route links working",
+        "Layout structure in place",
+        "Responsive design implemented"
+      ]
+    },
+    {
+      "id": "3.5",
+      "description": "Configure Netlify deployment",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Netlify account connected",
+        "Build configuration set",
+        "Continuous previews working",
+        "Production deployment configured"
+      ]
+    },
+    {
+      "id": "3.6",
+      "description": "Integrate Sentry for frontend error monitoring",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Sentry SDK installed",
+        "Error boundary implemented",
+        "UI-side errors are captured",
+        "Error reporting working"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-2-auth-billing-rbac"
+  ],
+  "acceptanceCriteria": [
+    "All top-level navigation routes are implemented",
+    "TanStack Start app is running locally",
+    "shadcn/ui components are integrated",
+    "Static shell is deployed to Netlify",
+    "Sentry is capturing frontend errors",
+    "Navigation structure matches specification"
+  ],
+  "implementationNotes": [
+    "Start with static shell - functionality comes in later phases",
+    "Use shadcn/ui Sheet/Modal components for future flyouts",
+    "Ensure Netlify build configuration is correct for TanStack Start",
+    "Sentry integration should be early to catch issues throughout development"
+  ],
+  "relatedFiles": [
+    "app/routes/",
+    "app/components/",
+    "netlify.toml",
+    "package.json"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

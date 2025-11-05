@@ -1,0 +1,62 @@
+{
+  "phase": {
+    "number": 3,
+    "name": "The 'Firecrawl' Hook & 'Autumn' Metering",
+    "status": "pending",
+    "description": "Implement the key acquisition loop using Firecrawl for stack discovery, with credit-based metering and Dock Registry feature discovery"
+  },
+  "criticalUXPrinciple": "Never admit failure when Firecrawl misses technologies. Instead, use it as a feature discovery moment for the Dock Registry.",
+  "objectives": [
+    "Build Firecrawl UI component for stack analysis",
+    "Implement metered Convex function with credit checking",
+    "Integrate Firecrawl API for dependency extraction",
+    "Create Dock Registry discovery flow",
+    "Implement credit tracking and billing integration",
+    "Build billing UI with upgrade prompts"
+  ],
+  "dependencies": {
+    "external": [
+      "Firecrawl API account",
+      "Autumn billing integration (from Phase 1)"
+    ],
+    "internal": [
+      "phase-1 (Auth, Billing, RBAC must be complete)",
+      "phase-2 (Optional - Beacon Network provides context)"
+    ]
+  },
+  "deliverables": [
+    "Firecrawl UI component with credit quota display",
+    "Metered Convex function with plan-based credit checking",
+    "Firecrawl API integration for URL crawling",
+    "Dock Registry UI (Available, In-Development, Scoping tabs)",
+    "Credit tracking and billing logic",
+    "Billing UI with upgrade prompts",
+    "PAYG overage billing via Autumn"
+  ],
+  "risks": [
+    "Firecrawl API may have rate limits or costs",
+    "Credit metering logic may need iteration",
+    "Dock Registry UI complexity may slow development",
+    "Autumn PAYG integration may require testing"
+  ],
+  "blockers": [],
+  "tasks": [
+    "task-1-firecrawl-ui",
+    "task-2-metered-function",
+    "task-3-firecrawl-call",
+    "task-4-logic-reporting",
+    "task-5-billing-ui"
+  ],
+  "successCriteria": [
+    "Users can input URLs for stack analysis",
+    "Credit quota is displayed and tracked",
+    "Free plan users are limited to 900 credits/month",
+    "Business plan users get 5000 credits/month with PAYG",
+    "Firecrawl successfully extracts dependencies",
+    "Dock Registry is shown when technologies are missed",
+    "Upgrade prompts appear when credit limits are reached",
+    "PAYG overage is billed correctly via Autumn"
+  ],
+  "estimatedDuration": "2-3 days",
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

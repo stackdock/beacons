@@ -1,0 +1,97 @@
+{
+  "task": {
+    "id": "task-2-auth-billing-rbac",
+    "name": "Auth, Billing & RBAC (The Core Funnel)",
+    "phase": 1,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Integrate Convex Auth, Clerk, Autumn billing, and implement RBAC system with plan-based feature gating",
+  "subtasks": [
+    {
+      "id": "2.1",
+      "description": "Integrate Convex Auth and Clerk",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Convex Auth configured",
+        "Clerk integration complete",
+        "Organizations, Users, and Roles models implemented",
+        "Authentication flow working end-to-end"
+      ],
+      "reference": "ARCHITECTURE.md from StackDock master plan"
+    },
+    {
+      "id": "2.2",
+      "description": "Integrate Autumn SDK and configure plans",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Autumn SDK installed and configured",
+        "Free Team Plan ($0/mo) configured in Autumn dashboard",
+        "Business Plan ($19/mo) configured in Autumn dashboard",
+        "Plan features properly set (900 vs 5000 credits, PAYG, priority queue)"
+      ]
+    },
+    {
+      "id": "2.3",
+      "description": "Implement organization/user data model in Convex",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Organization model stores autumnSubscriptionStatus (free/business)",
+        "Organization model stores firecrawlCreditsUsed (counter)",
+        "Organization model stores firecrawlCreditsLimit (900 or 5000)",
+        "User model linked to organizations",
+        "Schema follows Universal Table Architecture pattern"
+      ]
+    },
+    {
+      "id": "2.4",
+      "description": "Implement RBAC logic in Convex",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Free Team Plan allows unlimited internal team members",
+        "Free Team Plan supports Admin and Viewer roles",
+        "Business Plan unlocks external Client Portal",
+        "Business Plan unlocks Encrypted Client Key features",
+        "RBAC gates features based on autumnSubscriptionStatus"
+      ],
+      "reference": "GitHub issue: 'Implement RBAC' from StackDock master plan"
+    },
+    {
+      "id": "2.5",
+      "description": "Test authentication and billing integration",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Users can sign up and authenticate",
+        "Organizations are created on signup",
+        "Subscription status is tracked correctly",
+        "Plan features are properly gated",
+        "Billing webhooks from Autumn are handled"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-1-repo-ci"
+  ],
+  "acceptanceCriteria": [
+    "Convex Auth and Clerk fully integrated",
+    "Autumn SDK integrated with both plans configured",
+    "RBAC system implements plan-based feature gating",
+    "Organization model stores all required fields",
+    "Users can authenticate and access features based on plan"
+  ],
+  "implementationNotes": [
+    "Follow ARCHITECTURE.md patterns from StackDock master plan",
+    "Use Universal Table Architecture for data modeling",
+    "Credit limits are organization-level, not user-level",
+    "RBAC must check autumnSubscriptionStatus before allowing feature access"
+  ],
+  "relatedFiles": [
+    "convex/schema.ts",
+    "convex/auth.ts",
+    "convex/organizations.ts",
+    "convex/users.ts",
+    "convex/rbac.ts"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

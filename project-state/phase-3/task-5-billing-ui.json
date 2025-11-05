@@ -1,0 +1,105 @@
+{
+  "task": {
+    "id": "task-5-billing-ui",
+    "name": "The Frontend Billing UI",
+    "phase": 3,
+    "status": "pending",
+    "priority": "high"
+  },
+  "description": "Build billing UI that displays credit usage, remaining credits, and upgrade prompts when limits are reached",
+  "subtasks": [
+    {
+      "id": "3.5.1",
+      "description": "Display current firecrawlCreditsUsed and limit",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Current usage is displayed (900 for free, 5000 for business)",
+        "Limit is displayed",
+        "Display format is clear: 'X / Y credits used'",
+        "Progress bar or visual indicator is shown"
+      ]
+    },
+    {
+      "id": "3.5.2",
+      "description": "Calculate and display remaining credits",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Remaining credits are calculated (limit - used)",
+        "Display format: 'X credits remaining this month'",
+        "Display is clear and prominent",
+        "Updates in real-time"
+      ],
+      "format": "X credits remaining this month"
+    },
+    {
+      "id": "3.5.3",
+      "description": "Show upgrade button when free limit is reached",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Button appears when firecrawlCreditsUsed >= 900 (free plan)",
+        "Button text: 'Upgrade'",
+        "Button links to Autumn checkout page",
+        "Checkout page is for '$19/mo Business Plan'",
+        "Button is visually prominent"
+      ],
+      "trigger": "firecrawlCreditsUsed >= 900 (free plan)",
+      "buttonText": "Upgrade",
+      "checkoutPlan": "$19/mo Business Plan"
+    },
+    {
+      "id": "3.5.4",
+      "description": "Display Business Plan features on billing page",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Billing page shows: 'Includes 5,000 Firecrawl credits/month'",
+        "Billing page shows: 'Pay-As-You-Go overage: $0.01 per credit ($10 per 1,000 credits)'",
+        "Billing page shows: 'Priority queue access included'",
+        "Features are clearly listed",
+        "Managed by Autumn"
+      ],
+      "features": [
+        "Includes 5,000 Firecrawl credits/month",
+        "Pay-As-You-Go overage: $0.01 per credit ($10 per 1,000 credits)",
+        "Priority queue access included"
+      ]
+    },
+    {
+      "id": "3.5.5",
+      "description": "Implement credit system philosophy messaging",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Messaging explains organization-level credit pool",
+        "Messaging encourages team collaboration",
+        "Messaging creates upgrade pressure naturally",
+        "Philosophy is communicated clearly"
+      ],
+      "philosophy": "Organization-level credit pool forces teams to collaborate and manage usage together, creating natural upgrade pressure when limits are reached"
+    }
+  ],
+  "dependencies": [
+    "task-2-metered-function",
+    "phase-1 (Autumn integration)"
+  ],
+  "acceptanceCriteria": [
+    "Credit usage and limits are displayed clearly",
+    "Remaining credits are shown",
+    "Upgrade button appears when free limit is reached",
+    "Upgrade button links to Autumn checkout",
+    "Business Plan features are clearly listed",
+    "Credit system philosophy is communicated"
+  ],
+  "implementationNotes": [
+    "Make upgrade prompts compelling but not pushy",
+    "Show value of Business Plan clearly",
+    "Use progress bars or visual indicators for credit usage",
+    "Update UI in real-time when credits are used",
+    "Consider showing usage trends or history"
+  ],
+  "relatedFiles": [
+    "app/routes/settings/billing.tsx",
+    "app/components/credit-usage-display.tsx",
+    "app/components/upgrade-prompt.tsx"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

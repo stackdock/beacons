@@ -1,0 +1,59 @@
+{
+  "phase": {
+    "number": 1,
+    "name": "The Foundation (Core StackDock Shell)",
+    "status": "pending",
+    "description": "Establish the core infrastructure, authentication, billing, RBAC, and UI shell that serves as the foundation for all subsequent features"
+  },
+  "objectives": [
+    "Initialize isolated repository with CodeRabbit integration",
+    "Extract and adapt core patterns from StackDock master plan",
+    "Implement authentication with Convex Auth and Clerk",
+    "Integrate Autumn billing with two-tier plan system",
+    "Build RBAC system with plan-based feature gating",
+    "Create navigation structure and UI shell with TanStack Start",
+    "Deploy to Netlify with Sentry error monitoring"
+  ],
+  "dependencies": {
+    "external": [
+      "StackDock master plan reference (local path only)",
+      "Clerk account setup",
+      "Autumn account setup",
+      "Netlify account setup",
+      "Sentry account setup"
+    ],
+    "internal": []
+  },
+  "deliverables": [
+    "Fully isolated repository with no cross-repo dependencies",
+    "CodeRabbit integrated and passing PR reviews",
+    "Convex schema with Organizations, Users, Projects",
+    "Clerk authentication integration",
+    "Autumn SDK integrated with two plans configured",
+    "RBAC system with plan-based feature access",
+    "TanStack Start app with top-level navigation routes",
+    "shadcn/ui components integrated",
+    "Netlify deployment pipeline",
+    "Sentry error monitoring on frontend"
+  ],
+  "risks": [
+    "Complexity extraction from master plan may take longer than expected",
+    "RBAC implementation may require iteration based on plan requirements",
+    "Netlify deployment configuration may need troubleshooting"
+  ],
+  "blockers": [],
+  "tasks": [
+    "task-1-repo-ci",
+    "task-2-auth-billing-rbac",
+    "task-3-navigation-ui"
+  ],
+  "successCriteria": [
+    "Repository is completely isolated with no git dependencies",
+    "All sponsor technologies integrated and verified",
+    "Users can sign up, authenticate, and see the UI shell",
+    "Billing plans are configured and accessible",
+    "RBAC correctly gates features based on subscription status"
+  ],
+  "estimatedDuration": "3-4 days",
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

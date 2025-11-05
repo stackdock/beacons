@@ -1,0 +1,84 @@
+{
+  "task": {
+    "id": "task-3-firecrawl-call",
+    "name": "The Firecrawl Call",
+    "phase": 3,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Integrate Firecrawl API to crawl user's URL and extract external resource links and dependencies",
+  "subtasks": [
+    {
+      "id": "3.3.1",
+      "description": "Set up Firecrawl API integration",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Firecrawl API key is configured (environment variable)",
+        "Firecrawl SDK is installed",
+        "API client is initialized",
+        "Error handling is in place"
+      ]
+    },
+    {
+      "id": "3.3.2",
+      "description": "Call Firecrawl API to crawl URL",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "URL is passed to Firecrawl API",
+        "Crawl request is made successfully",
+        "Response is received",
+        "Errors are handled gracefully"
+      ]
+    },
+    {
+      "id": "3.3.3",
+      "description": "Extract external resource links from Firecrawl response",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "External resource links are extracted",
+        "Examples: api.stripe.com, fonts.google.com, vercel.com",
+        "Data is parsed and structured",
+        "Invalid/malformed links are filtered"
+      ],
+      "examples": [
+        "api.stripe.com",
+        "fonts.google.com",
+        "vercel.com"
+      ]
+    },
+    {
+      "id": "3.3.4",
+      "description": "Identify providers/services from extracted links",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Providers are identified from domain patterns",
+        "Service types are categorized",
+        "Data is structured for storage",
+        "Unrecognized providers are handled"
+      ]
+    }
+  ],
+  "dependencies": [
+    "task-2-metered-function"
+  ],
+  "acceptanceCriteria": [
+    "Firecrawl API is integrated and working",
+    "URLs are crawled successfully",
+    "External resource links are extracted",
+    "Providers/services are identified",
+    "Data is ready for processing and storage"
+  ],
+  "implementationNotes": [
+    "Handle Firecrawl API rate limits",
+    "Cache results if possible to reduce API calls",
+    "Extract links from HTML, JavaScript, and CSS",
+    "Identify providers by domain patterns (e.g., *.vercel.com → Vercel)",
+    "Handle API errors gracefully - don't fail silently"
+  ],
+  "relatedFiles": [
+    "convex/actions.ts (Firecrawl API call)",
+    ".env (Firecrawl API key)"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

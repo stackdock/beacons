@@ -1,0 +1,97 @@
+{
+  "task": {
+    "id": "task-1-infrastructure-setup",
+    "name": "Deploy StackDock's Internal Beacon Network (Infrastructure Setup)",
+    "phase": 2,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Deploy small 'hello world' demo apps/servers on each major provider with health check endpoints. These become StackDock's 'canary deployments' for monitoring.",
+  "subtasks": [
+    {
+      "id": "2.1.1",
+      "description": "Deploy demo app on AWS",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Demo app deployed (EC2 or Lambda with API Gateway)",
+        "Health endpoint exposed (/health or /api/beacon)",
+        "Endpoint returns 200 OK with minimal latency",
+        "URL is documented"
+      ],
+      "provider": "AWS",
+      "deploymentType": "EC2 or Lambda with API Gateway"
+    },
+    {
+      "id": "2.1.2",
+      "description": "Deploy demo app on Vercel",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Edge Function deployed",
+        "Health endpoint exposed (/health or /api/beacon)",
+        "Endpoint returns 200 OK",
+        "URL is documented"
+      ],
+      "provider": "Vercel",
+      "deploymentType": "Edge Function"
+    },
+    {
+      "id": "2.1.3",
+      "description": "Deploy demo app on Cloudflare",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Worker deployed",
+        "Health endpoint exposed (/health or /api/beacon)",
+        "Endpoint returns 200 OK",
+        "URL is documented"
+      ],
+      "provider": "Cloudflare",
+      "deploymentType": "Workers"
+    },
+    {
+      "id": "2.1.4",
+      "description": "Deploy demo app on DigitalOcean",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Droplet deployed",
+        "Health endpoint exposed (/health or /api/beacon)",
+        "Endpoint returns 200 OK",
+        "URL is documented"
+      ],
+      "provider": "DigitalOcean",
+      "deploymentType": "Droplet"
+    },
+    {
+      "id": "2.1.5",
+      "description": "Store demo app URLs in Convex configuration table",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "beacon_endpoints table created in Convex",
+        "All demo app URLs stored",
+        "Provider names associated with URLs",
+        "Data is queryable"
+      ]
+    }
+  ],
+  "dependencies": [
+    "phase-1"
+  ],
+  "acceptanceCriteria": [
+    "Demo apps deployed on AWS, Vercel, Cloudflare, and DigitalOcean",
+    "All apps expose health check endpoints",
+    "All endpoints return 200 OK",
+    "URLs stored in Convex beacon_endpoints table",
+    "Apps serve as 'canary deployments' for monitoring"
+  ],
+  "implementationNotes": [
+    "Keep demo apps minimal - just enough to verify DNS and server availability",
+    "Health endpoints should be lightweight and fast",
+    "Use consistent endpoint path (/health or /api/beacon) across all providers",
+    "Document all URLs for Cloudflare Worker configuration"
+  ],
+  "relatedFiles": [
+    "convex/schema.ts (beacon_endpoints table)",
+    "infrastructure/ (demo app code)"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}

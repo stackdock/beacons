@@ -1,0 +1,105 @@
+{
+  "task": {
+    "id": "task-4-logic-reporting",
+    "name": "The Logic & Reporting (CRITICAL - Never Admit Failure)",
+    "phase": 3,
+    "status": "pending",
+    "priority": "critical"
+  },
+  "description": "Process Firecrawl results, add dependencies to monitoring list, increment credits, and display results with Dock Registry discovery flow",
+  "subtasks": [
+    {
+      "id": "3.4.1",
+      "description": "Add dependencies to user's personal monitoring list",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Dependencies from Firecrawl are stored",
+        "User's personal monitoring list is updated",
+        "Data is associated with user/organization",
+        "List is queryable"
+      ]
+    },
+    {
+      "id": "3.4.2",
+      "description": "Increment firecrawlCreditsUsed counter",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Counter is incremented for organization",
+        "Increment happens atomically",
+        "Credit usage is tracked accurately",
+        "Counter matches actual usage"
+      ]
+    },
+    {
+      "id": "3.4.3",
+      "description": "Implement success message when Firecrawl finds technologies",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Message displayed: 'Scan complete! We've pre-configured your [Provider1] and [Provider2] dashboards.'",
+        "Provider names are dynamically inserted",
+        "Message is positive and encouraging"
+      ],
+      "message": "Scan complete! We've pre-configured your [Provider1] and [Provider2] dashboards."
+    },
+    {
+      "id": "3.4.4",
+      "description": "Implement Dock Registry discovery flow",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "Message displayed when technologies are missed: 'If something isn't here or you would like to ADD, click '+ Add A Provider' to see the Docks we support (GridPane, DigitalOcean, etc.) and connect them manually.'",
+        "'+ Add A Provider' button is shown",
+        "Dock Registry tabs are displayed: Available Docks, In-Development Docks, Scoping Requests",
+        "Never admit failure - frame as feature discovery"
+      ],
+      "message": "If something isn't here or you would like to ADD, click '+ Add A Provider' to see the Docks we support (GridPane, DigitalOcean, etc.) and connect them manually.",
+      "tabs": [
+        "Available Docks",
+        "In-Development Docks",
+        "Scoping Requests"
+      ],
+      "principle": "WE DO NOT ADMIT FAILURE - Instead, turn this into a feature discovery moment that reveals the Dock Registry's power"
+    },
+    {
+      "id": "3.4.5",
+      "description": "Implement PAYG overage reporting for Business Plan",
+      "status": "pending",
+      "acceptanceCriteria": [
+        "For credits beyond 5000 bundle, call autumn.reportUsage()",
+        "Usage is reported to Autumn",
+        "PAYG pricing is applied: $0.01 per credit ($10 per 1,000 credits)",
+        "Billing is accurate"
+      ],
+      "pricing": {
+        "perCredit": 0.01,
+        "perThousand": 10
+      }
+    }
+  ],
+  "dependencies": [
+    "task-3-firecrawl-call",
+    "phase-1 (Autumn integration)"
+  ],
+  "acceptanceCriteria": [
+    "Dependencies are added to user's monitoring list",
+    "Credit counter is incremented correctly",
+    "Success messages are displayed when technologies are found",
+    "Dock Registry is shown when technologies are missed",
+    "Failure is never admitted - always framed as feature discovery",
+    "PAYG overage is reported to Autumn for Business Plan users"
+  ],
+  "implementationNotes": [
+    "CRITICAL: Never admit failure - this is the key UX principle",
+    "Always show Dock Registry as a positive feature, not a workaround",
+    "Make '+ Add A Provider' prominent and appealing",
+    "Show examples of available docks to entice users",
+    "In-Development tab creates anticipation",
+    "Scoping Requests tab shows responsiveness"
+  ],
+  "relatedFiles": [
+    "convex/mutations.ts (process results)",
+    "app/components/dock-registry.tsx",
+    "app/components/firecrawl-results.tsx"
+  ],
+  "agentNotes": [],
+  "lastUpdated": "2025-11-04T20:34:00Z"
+}
